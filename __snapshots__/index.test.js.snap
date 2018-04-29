@@ -6,7 +6,8 @@ exports[`babel-plugin-html-tag fixture test 1`] = `
 
 const b = 'test';
 const a = \`<p class=\\"center justify zoom\\">This is paragraph with \${b} subsitutions at several lines: \${1 + 2}</p>\`;
-const z = '<table class=\\"center\\"><tr class=\\"left\\"><td>HTML without substitutions</td></tr></table>';"
+const z = '<table class=\\"center\\"><tr class=\\"left\\"><td>HTML without substitutions</td></tr></table>';
+const e = '<style>[data-clipboard-text]{cursor:copy!important;transition:all .5s cubic-bezier(.19,1,.22,1)}[data-clipboard-text]:hover{background-color:green!important;color:#fff!important}</style>';"
 `;
 
 exports[`babel-plugin-html-tag returns static string when possible 1`] = `"'<p class=\\"center\\">AAA bbb,\\\\'ff\\\\'</p>';"`;

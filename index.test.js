@@ -6,21 +6,9 @@ const { readFileSync } = require('fs');
 
 const plugin = require('./index');
 
-function transform(
-  code,
-  opts = {
-    tags: ['html'],
-    sortAttributes: true,
-    sortClassName: true,
-    collapseWhitespace: true,
-    conservativeCollapse: false,
-    removeComments: true,
-    removeEmptyAttributes: true,
-    removeTagWhitespace: true,
-  },
-) {
+function transform(code) {
   return babel.transform(code, {
-    plugins: [[plugin, opts]],
+    plugins: [plugin],
   }).code;
 }
 

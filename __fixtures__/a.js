@@ -12,3 +12,15 @@ const z = html`<table class="center">
         <td>HTML without substitutions</td>
     </tr>
 </table>`;
+
+const e = html`<style>
+    [data-clipboard-text] {
+        cursor: copy !important;
+        transition: all .5s cubic-bezier(.19, 1, .22, 1);
+    }
+
+    [data-clipboard-text]:hover {
+        background-color: green !important;
+        color: white !important;
+    }
+</style>`;

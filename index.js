@@ -17,16 +17,19 @@ function getNames(name, option = ['html']) {
   );
 }
 
+function escapeStaticString(text) {
+  return text.replace(/[^\\]'/g, "\\'").replace(/\n+/g, '\\n');
+}
+
 module.exports = babel => {
   const t = babel.types;
 
-  function escapeSingleQuote(text) {
-    return text.replace(/[^\\]'/g, "\\'");
-  }
+  function minify(template, options = {}) {
+    const { node } = template.get('quasi');
+    const quasis = node.quasis.map(quasi => quasi.value.cooked);
 
-  function minify(
-    template,
-    options = {
+    const html = quasis.join(placeholder);
+    const minified = htmlMinifier.minify(html, {
       sortAttributes: true,
       sortClassName: true,
       collapseWhitespace: true,
@@ -34,13 +37,8 @@ module.exports = babel => {
       removeComments: true,
       removeEmptyAttributes: true,
       removeTagWhitespace: true,
-    },
-  ) {
-    const { node } = template.get('quasi');
-    const quasis = node.quasis.map(quasi => quasi.value.cooked);
-
-    const html = quasis.join(placeholder);
-    const minified = htmlMinifier.minify(html, {
+      minifyCSS: true,
+      preserveLineBreaks: false,
       ...options,
       quoteCharacter: '"',
     });
@@ -59,25 +57,17 @@ module.exports = babel => {
           );
       });
       template.replaceWith(template.get('quasi'));
-    } else template.replaceWithSourceString(`'${escapeSingleQuote(minified)}'`);
+    } else
+      template.replaceWithSourceString(`'${escapeStaticString(minified)}'`);
   }
 
   return {
     visitor: {
-      Program: {
-        enter() {
-          this.bindings = new Set();
-        },
-      },
-
       TaggedTemplateExpression(path) {
         const tag = path.get('tag');
-        const isHtmlTag =
-          getNames('tags', this.opts.tags).some(name =>
-            tag.isIdentifier({ name }),
-          ) ||
-          (tag.isIdentifier() &&
-            this.bindings.has(path.scope.getBinding(tag.node.name)));
+        const isHtmlTag = getNames('tags', this.opts.tags).some(name =>
+          tag.isIdentifier({ name }),
+        );
         if (isHtmlTag) {
           minify(path, this.opts);
         }
