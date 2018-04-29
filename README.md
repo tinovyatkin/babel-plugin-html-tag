@@ -31,3 +31,7 @@ const a = `<p class="zoom center justify">This is paragraph with ${b} subsitutio
 const z =
   '<table class="center"><tr class="left"><td>HTML without substitutions</td></tr></table>';
 ```
+
+## Credits
+
+Inspired by [babel-plugin-template-html-minifier](https://github.com/goto-bus-stop/babel-plugin-template-html-minifier) and [babel-plugin-graphql-tag](https://github.com/gajus/babel-plugin-graphql-tag)
