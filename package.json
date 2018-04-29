@@ -1,8 +1,7 @@
 {
   "name": "babel-plugin-html-tag",
-  "version": "1.0.0",
-  "description":
-    "Statically evaluates and minify tagged html`<..>` template literals into strings",
+  "version": "1.0.1",
+  "description": "Statically evaluates and minify tagged html`<..>` template literals into strings",
   "main": "index.js",
   "engines": {
     "node": ">=8.6"
@@ -14,8 +13,15 @@
     "type": "git",
     "url": "git+https://github.com/tinovyatkin/babel-plugin-html-tag.git"
   },
-  "files": ["index.js"],
-  "keywords": ["babel", "babel-plugin", "html", "template-literals"],
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "babel",
+    "babel-plugin",
+    "html",
+    "template-literals"
+  ],
   "author": "Tino Vyatkin <tino@vtkn.io>",
   "license": "MIT",
   "bugs": {
@@ -38,8 +44,13 @@
     "verbose": true
   },
   "eslintConfig": {
-    "plugins": ["node"],
-    "extends": ["@destinationstransfers", "plugin:node/recommended"],
+    "plugins": [
+      "node"
+    ],
+    "extends": [
+      "@destinationstransfers",
+      "plugin:node/recommended"
+    ],
     "env": {
       "node": true
     },
