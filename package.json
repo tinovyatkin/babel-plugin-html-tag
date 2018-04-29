@@ -5,7 +5,7 @@
     "Statically evaluates and minify tagged html`<..>` template literals into strings",
   "main": "index.js",
   "engines": {
-    "node": ">=8"
+    "node": ">=8.6"
   },
   "scripts": {
     "test": "jest"
@@ -25,7 +25,8 @@
     "@destinationstransfers/eslint-config": "latest",
     "eslint": "latest",
     "eslint-plugin-node": "latest",
-    "jest": "latest"
+    "jest": "latest",
+    "@babel/core": "^7.0.0-beta.46"
   },
   "directories": {
     "test": "__tests__"
@@ -44,5 +45,11 @@
     "parserOptions": {
       "sourceType": "script"
     }
+  },
+  "peerDependencies": {
+    "@babel/core": "^7"
+  },
+  "dependencies": {
+    "html-minifier": "^3.5.15"
   }
 }

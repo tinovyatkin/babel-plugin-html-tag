@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`babel-plugin-html-tag fixture test 1`] = `
+"'use strict';
+/* global html */
+
+const b = 'test';
+const a = \`<p class=\\"center justify zoom\\">This is paragraph with \${b} subsitutions at several lines: \${1 + 2}</p>\`;
+const z = '<table class=\\"center\\"><tr class=\\"left\\"><td>HTML without substitutions</td></tr></table>';"
+`;
+
+exports[`babel-plugin-html-tag returns static string when possible 1`] = `"'<p class=\\"center\\">AAA bbb,\\\\'ff\\\\'</p>';"`;
+
+exports[`babel-plugin-html-tag returns tagged template 1`] = `"\`<p>\${textToTest}</p>\`;"`;
