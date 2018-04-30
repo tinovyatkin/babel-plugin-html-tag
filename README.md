@@ -32,6 +32,10 @@ const z =
   '<table class="center"><tr class="left"><td>HTML without substitutions</td></tr></table>';
 ```
 
+### Tip
+
+Try it with Visual Studio Code [bierner.lit-html](https://marketplace.visualstudio.com/items?itemName=bierner.lit-html) plugin for beautiful syntax highlight and HTML autocomplete inside tagged HTML string.
+
 ## Credits
 
 Inspired by [babel-plugin-template-html-minifier](https://github.com/goto-bus-stop/babel-plugin-template-html-minifier) and [babel-plugin-graphql-tag](https://github.com/gajus/babel-plugin-graphql-tag)
