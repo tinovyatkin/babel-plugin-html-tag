@@ -5,8 +5,8 @@ const htmlMinifier = require('html-minifier');
 // This placeholder has a space so that, if an expressions is used
 // in an attribute like `class="ab${something}cd"`, html-minifier
 // doesn't remove the attribute quotes.
-const placeholder = '__BABEL HTML MINIFIER PLACEHOLDER$$__';
-const placeholderRx = /_{2}BABEL HTML MINIFIER PLACEHOLDER\${2}_{2}/g;
+const placeholder = '_BABEL_HTML_TAG_';
+const placeholderRx = /_babel_html_tag_/gi;
 
 function getNames(name, option = ['html']) {
   if (Array.isArray(option)) return option;
@@ -30,17 +30,19 @@ module.exports = babel => {
 
     const html = quasis.join(placeholder);
     const minified = htmlMinifier.minify(html, {
-      sortAttributes: true,
-      sortClassName: true,
       collapseWhitespace: true,
       conservativeCollapse: false,
       removeComments: true,
       removeEmptyAttributes: true,
-      removeTagWhitespace: true,
       minifyCSS: true,
       preserveLineBreaks: false,
       ...options,
+      /* setting below must be enforced in order to prevent replacement mistakes */
       quoteCharacter: '"',
+      sortAttributes: false,
+      removeAttributeQuotes: false,
+      sortClassName: false,
+      removeTagWhitespace: false,
     });
 
     const parts = minified.split(placeholderRx);

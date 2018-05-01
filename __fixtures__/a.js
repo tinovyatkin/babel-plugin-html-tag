@@ -24,3 +24,55 @@ const e = html`<style>
         color: white !important;
     }
 </style>`;
+
+const classNames = {};
+const t = {
+  item(data) {
+    return strToEl(
+      html`
+        <div class="${String(classNames.item)} ${String(
+        data.highlighted
+          ? classNames.highlightedState
+          : classNames.itemSelectable,
+      )}" data-item data-id="${String(data.id)}" data-value="${String(
+        data.value,
+      )}" ${String(data.active ? 'aria-selected="true"' : '')}>
+            <span>
+                ${String(data.label)}
+            </span>&nbsp;&nbsp;(
+            <strong class="mono" style="font-size: 110%">${String(data.value)}
+            </strong>)
+        </div>
+        `,
+    );
+  },
+  choice(data) {
+    return strToEl(
+      html`
+        <div class="nobr ${String(classNames.item)} ${String(
+        classNames.itemChoice,
+      )} ${
+        classNames.itemSelectable
+      }" data-choice data-choice-selectable data-id="${String(
+        data.id,
+      )}" data-value="${String(data.value)}" role="option">
+            <span>${String(data.label)}</span>
+            <strong class="mono">${String(data.value)}
+            </strong>
+        </div>
+        `,
+    );
+  },
+  option(data) {
+    return strToEl(
+      html`
+        <option value="${data.value}" selected data-lat="${
+        data.customProperties.pos[1]
+      }" data-lng="${data.customProperties.pos[0]}" data-place-id="${
+        data.customProperties.placeId
+      }">${data.label}
+        </option>
+          `,
+    );
+  },
+};
