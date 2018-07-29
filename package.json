@@ -29,11 +29,11 @@
   },
   "homepage": "https://github.com/tinovyatkin/babel-plugin-html-tag#readme",
   "devDependencies": {
+    "@babel/core": "^7.0.0-beta.55",
     "@destinationstransfers/eslint-config": "latest",
     "eslint": "latest",
     "eslint-plugin-node": "latest",
-    "jest": "latest",
-    "@babel/core": "^7.0.0-beta.46"
+    "jest": "latest"
   },
   "directories": {
     "test": "__tests__"
@@ -59,6 +59,6 @@
     }
   },
   "dependencies": {
-    "html-minifier": "^3.5.15"
+    "html-minifier": "^3.5.19"
   }
 }
