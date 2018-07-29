@@ -18,7 +18,8 @@ function getNames(name, option = ['html']) {
 }
 
 function escapeStaticString(text) {
-  return text.replace(/[^\\]'/g, "\\'").replace(/\n+/g, '\\n');
+  // escape single quotes (if not already escaped)
+  return text.replace(/(?<!\\)'/g, "\\'").replace(/\n+/g, '\\n');
 }
 
 module.exports = babel => {

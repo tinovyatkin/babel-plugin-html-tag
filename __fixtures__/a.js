@@ -25,6 +25,8 @@ const e = html`<style>
     }
 </style>`;
 
+const n = html`<div ng-class="{'my-class': myVar}"></div>`;
+
 const classNames = {};
 const t = {
   item(data) {
