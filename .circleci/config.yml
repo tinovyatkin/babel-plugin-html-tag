@@ -31,4 +31,10 @@ jobs:
       # run tests!
       - run: yarn test
 
+      - run:
+          name: Upload code coverage to Codecov
+          command: >-
+            bash <(curl -s https://codecov.io/bash) -f
+            coverage/coverage-final.json
+
 
