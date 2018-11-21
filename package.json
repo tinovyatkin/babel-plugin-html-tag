@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-html-tag",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Statically evaluates and minify tagged html`<..>` template literals into strings",
   "main": "index.js",
   "engines": {
