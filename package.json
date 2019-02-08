@@ -7,7 +7,8 @@
     "node": ">=8.6"
   },
   "scripts": {
-    "test": "jest"
+    "test": "node --expose-gc node_modules/jest/bin/jest --detectOpenHandles --detectLeaks --notify --logHeapUsage",
+    "typecheck": "tsc --p jsconfig.json"
   },
   "repository": {
     "type": "git",
@@ -31,9 +32,13 @@
   "devDependencies": {
     "@babel/core": "7.2.2",
     "@destinationstransfers/eslint-config": "latest",
+    "@types/babel__traverse": "^7.0.5",
+    "@types/node": "^10.12.23",
     "eslint": "latest",
-    "eslint-plugin-node": "latest",
-    "jest": "latest"
+    "jest": "^24.1.0",
+    "jest-junit": "^6.2.1",
+    "typescript": "^3.3.3",
+    "weak": "^1.0.1"
   },
   "directories": {
     "test": "__tests__"
@@ -41,15 +46,20 @@
   "jest": {
     "collectCoverage": true,
     "testEnvironment": "node",
-    "verbose": true
+    "verbose": true,
+    "coverageReporters": [
+      "text",
+      "json",
+      "html",
+      "cobertura"
+    ]
   },
   "eslintConfig": {
     "plugins": [
       "node"
     ],
     "extends": [
-      "@destinationstransfers",
-      "plugin:node/recommended"
+      "@destinationstransfers"
     ],
     "env": {
       "node": true
