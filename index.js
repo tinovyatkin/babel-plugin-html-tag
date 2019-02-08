@@ -2,12 +2,25 @@
 
 const htmlMinifier = require('html-minifier');
 
+/**
+ * @typedef {import('babel-types').TaggedTemplateExpression} TaggedTemplateExpression
+ * @typedef {import('babel-types').TemplateLiteral} TemplateLiteral
+ * @typedef {import('@babel/traverse').Visitor<TaggedTemplateExpression>} Visitor
+ * @typedef {import('@babel/traverse').NodePath<TaggedTemplateExpression>} NodePath
+ */
+
 // This placeholder has a space so that, if an expressions is used
 // in an attribute like `class="ab${something}cd"`, html-minifier
 // doesn't remove the attribute quotes.
 const placeholder = '_BABEL_HTML_TAG_';
 const placeholderRx = /_babel_html_tag_/gi;
 
+/**
+ * 
+ * @param {string} name 
+ * @param {string | string[]} [option=html] 
+ * @returns {string[]}
+ */
 function getNames(name, option = ['html']) {
   if (Array.isArray(option)) return option;
   if (typeof option === 'string') return [option];
@@ -17,19 +30,37 @@ function getNames(name, option = ['html']) {
   );
 }
 
+/**
+ * 
+ * @param {string} text 
+ * @returns {string}
+ */
 function escapeStaticString(text) {
   // escape single quotes (if not already escaped)
   return text.replace(/(?<!\\)'/g, "\\'").replace(/\n+/g, '\\n');
 }
 
-module.exports = babel => {
+
+module.exports = 
+/**
+ * @param {import('@babel/core')} babel
+ * @returns {{ visitor: Visitor }}
+ */
+babel => {
   const t = babel.types;
 
+  /**
+   * 
+   * @param {NodePath} template 
+   * @param {Pick<htmlMinifier.Options, Exclude<keyof htmlMinifier.Options, ['quoteCharacter', 'sortAttributes', 'removeAttributeQuotes', 'sortClassName', 'removeTagWhitespace']>>} [options={}]
+   */
   function minify(template, options = {}) {
+    /** @type {{ node: TemplateLiteral }} */
     const { node } = template.get('quasi');
-    const quasis = node.quasis.map(quasi => quasi.value.cooked);
+    const { quasis } = node;
+    const cookedQuasis = quasis.map(quasi => quasi.value.cooked);
 
-    const html = quasis.join(placeholder);
+    const html = cookedQuasis.join(placeholder);
     const minified = htmlMinifier.minify(html, {
       collapseWhitespace: true,
       conservativeCollapse: false,
@@ -60,8 +91,9 @@ module.exports = babel => {
           );
       });
       template.replaceWith(template.get('quasi'));
-    } else
+    } else {
       template.replaceWithSourceString(`'${escapeStaticString(minified)}'`);
+    }
   }
 
   return {
