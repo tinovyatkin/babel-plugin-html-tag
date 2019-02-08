@@ -60,15 +60,23 @@ babel => {
     const { quasis } = node;
     const cookedQuasis = quasis.map(quasi => quasi.value.cooked);
 
+    let minifyCSS = true;
+    for(const part of cookedQuasis) {
+      const openingStyles = (part.match(/<style>/gim) || []).length;
+      const closingStyles = (part.match(/<\/style>/gim) || []).length;
+      if(openingStyles > closingStyles) {
+        minifyCSS = false; break;
+      }
+    }
     const html = cookedQuasis.join(placeholder);
     const minified = htmlMinifier.minify(html, {
       collapseWhitespace: true,
       conservativeCollapse: false,
       removeComments: true,
       removeEmptyAttributes: true,
-      minifyCSS: true,
       preserveLineBreaks: false,
       ...options,
+      minifyCSS,
       /* setting below must be enforced in order to prevent replacement mistakes */
       quoteCharacter: '"',
       sortAttributes: false,

@@ -23,9 +23,20 @@ const t = {
     return strToEl(\`<option value=\\"\${data.value}\\" selected=\\"selected\\" data-lat=\\"\${data.customProperties.pos[1]}\\" data-lng=\\"\${data.customProperties.pos[0]}\\" data-place-id=\\"\${data.customProperties.placeId}\\">\${data.label}</option>\`);
   }
 
-};"
+};
+const st = \`<style>@media only screen and (min-width: 768px) {
+        \${fieldsets.map(className => \`fieldset.\${className} { background-image: url(\${basePath}\${className}-1400px.\${ext}); }\`).join('\\\\n')}
+      }</style><style>.byaka {
+        background: \${eee}
+      }</style>\`;"
 `;
 
 exports[`babel-plugin-html-tag returns static string when possible 1`] = `"'<p class=\\"center\\">AAA bbb, \\\\'fff\\\\'</p>';"`;
 
 exports[`babel-plugin-html-tag returns tagged template 1`] = `"\`<p>\${textToTest}</p>\`;"`;
+
+exports[`babel-plugin-html-tag style tag with generated content 1`] = `
+"\`<style>@media only screen and (min-width: 768px) {
+        \${fieldsets.map(className => \`fieldset.\${className} { background-image: url(\${basePath}\${className}-1400px.\${ext}); }\`).join('\\\\n')}
+      }</style>\`;"
+`;
