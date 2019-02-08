@@ -4,7 +4,7 @@ Statically evaluates and minifies tagged `` html`<..>` `` template literals into
 
 ![npm](https://img.shields.io/npm/v/babel-plugin-html-tag.svg)
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest) [![codecov](https://codecov.io/gh/tinovyatkin/babel-plugin-html-tag/branch/master/graph/badge.svg)](https://codecov.io/gh/tinovyatkin/babel-plugin-html-tag)
-![node](https://img.shields.io/node/v/babel-plugin-html-tag.svg)
+![node](https://img.shields.io/node/v/babel-plugin-html-tag.svg) [![Build Status](https://dev.azure.com/tino0458/babel-plugin-html-tag/_apis/build/status/tinovyatkin.babel-plugin-html-tag?branchName=master)](https://dev.azure.com/tino0458/babel-plugin-html-tag/_build/latest?definitionId=1&branchName=master)
 
 ## What it does:
 
