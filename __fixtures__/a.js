@@ -78,3 +78,19 @@ const t = {
     );
   },
 };
+
+const st = html`<style>
+      @media only screen and (min-width: 768px) {
+        ${fieldsets
+          .map(
+            className =>
+              `fieldset.${className} { background-image: url(${basePath}${className}-1400px.${ext}); }`,
+          )
+          .join('\n')}
+      }
+    </style>
+    <style>
+      .byaka {
+        background: ${eee}
+      }
+    </style>`
