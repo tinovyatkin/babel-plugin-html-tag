@@ -37,7 +37,7 @@
     "eslint": "latest",
     "jest": "24.1.0",
     "jest-junit": "6.3.0",
-    "typescript": "3.3.3",
+    "typescript": "3.3.3333",
     "weak": "1.0.1"
   },
   "directories": {
