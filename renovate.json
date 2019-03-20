@@ -1,5 +1,10 @@
 {
   "extends": [
-    "config:base"
-  ]
+    "config:base",
+    ":automergeMinor"
+  ],
+  "baseBranches": ["master"],
+  "respectLatest": false,
+  "labels": ["dependencies"],
+  "timezone": "America/Santo_Domingo"
 }
