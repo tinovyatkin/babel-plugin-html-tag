@@ -4,7 +4,7 @@
   "description": "Statically evaluates and minify tagged html`<..>` template literals into strings",
   "main": "index.js",
   "engines": {
-    "node": ">=8.6"
+    "node": ">=8.10"
   },
   "scripts": {
     "test": "node --expose-gc node_modules/jest/bin/jest --detectOpenHandles --detectLeaks --notify --logHeapUsage",
@@ -31,9 +31,9 @@
   "homepage": "https://github.com/tinovyatkin/babel-plugin-html-tag#readme",
   "devDependencies": {
     "@babel/core": "7.4.0",
-    "@destinationstransfers/eslint-config": "latest",
+    "@destinationstransfers/eslint-plugin": "^2.2.3",
     "@types/babel__traverse": "7.0.6",
-    "@types/node": "10.14.4",
+    "@types/node": "^11.13.0",
     "eslint": "latest",
     "jest": "24.6.0",
     "jest-junit": "6.3.0",
@@ -56,10 +56,10 @@
   },
   "eslintConfig": {
     "plugins": [
-      "node"
+      "@destinationstransfers"
     ],
     "extends": [
-      "@destinationstransfers"
+      "plugin:@destinationstransfers/recommended"
     ],
     "env": {
       "node": true
