@@ -15,8 +15,11 @@ steps:
 - script: npm ci
   displayName: 'npm install and build'
 
-- script: npm test -- --ci --reporters=default --reporters=jest-junit
+- script: npm test -- --ci --reporters=default --reporters=jest-junit --coverage
   displayName: 'Run Jest'
+
+- script: npx codecov -f "./coverage/coverage-final.json" -y "./.codecov.yml"
+  displayName: 'Upload to Codecov'
 
 - task: PublishTestResults@2
   condition: succeededOrFailed()
