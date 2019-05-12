@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 pool:
-  vmImage: 'Ubuntu-16.04'
+  vmImage: 'ubuntu-latest'
 
 steps:
 - task: NodeTool@0
@@ -18,7 +18,7 @@ steps:
 - script: npm test -- --ci --reporters=default --reporters=jest-junit --coverage
   displayName: 'Run Jest'
 
-- script: npx codecov -f "./coverage/coverage-final.json" -y "./.codecov.yml"
+- script: npx codecov -f "./coverage/coverage-final.json" -y "./.codecov.yml" -t $(CODECOV_TOKEN)
   displayName: 'Upload to Codecov'
 
 - task: PublishTestResults@2
