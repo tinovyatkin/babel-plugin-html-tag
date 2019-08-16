@@ -36,7 +36,7 @@
     "@types/node": "11.13.19",
     "eslint": "latest",
     "jest": "24.9.0",
-    "jest-junit": "6.4.0",
+    "jest-junit": "7.0.0",
     "typescript": "3.5.3",
     "weak": "1.0.1"
   },
