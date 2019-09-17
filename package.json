@@ -7,7 +7,7 @@
     "node": ">=8.10"
   },
   "scripts": {
-    "test": "node --expose-gc node_modules/jest/bin/jest --detectOpenHandles --detectLeaks --notify --logHeapUsage",
+    "test": "node --expose-gc node_modules/jest/bin/jest --detectOpenHandles --detectLeaks --logHeapUsage",
     "typecheck": "tsc --p jsconfig.json"
   },
   "repository": {
@@ -21,9 +21,13 @@
     "babel",
     "babel-plugin",
     "html",
-    "template-literals"
+    "template-literals",
+    "common-tags",
+    "es2015-tag",
+    "template",
+    "literal"
   ],
-  "author": "Tino Vyatkin <tino@vtkn.io>",
+  "author": "Konstantin Vyatkin <tino@vtkn.io>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/tinovyatkin/babel-plugin-html-tag/issues"
@@ -33,12 +37,11 @@
     "@babel/core": "7.6.0",
     "@destinationstransfers/eslint-plugin": "2.9.1",
     "@types/babel__traverse": "7.0.7",
-    "@types/node": "11.13.20",
+    "@types/node": "12.7.5",
     "eslint": "latest",
     "jest": "25.0.0",
     "jest-junit": "8.0.0",
-    "typescript": "3.6.3",
-    "weak": "1.0.1"
+    "typescript": "3.6.3"
   },
   "directories": {
     "test": "__tests__"
