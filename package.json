@@ -40,7 +40,7 @@
     "@types/node": "12.11.2",
     "eslint": "latest",
     "jest": "25.0.0",
-    "jest-junit": "8.0.0",
+    "jest-junit": "9.0.0",
     "typescript": "3.6.4"
   },
   "directories": {
