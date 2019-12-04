@@ -41,7 +41,7 @@
     "eslint": "latest",
     "jest": "25.0.0",
     "jest-junit": "9.0.0",
-    "typescript": "3.7.2"
+    "typescript": "3.7.3"
   },
   "directories": {
     "test": "__tests__"
