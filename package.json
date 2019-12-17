@@ -37,7 +37,7 @@
     "@babel/core": "7.7.5",
     "@destinationstransfers/eslint-plugin": "2.9.67",
     "@types/babel__traverse": "7.0.8",
-    "@types/node": "12.12.19",
+    "@types/node": "12.12.20",
     "eslint": "latest",
     "jest": "25.0.0",
     "jest-junit": "10.0.0",
