@@ -35,7 +35,7 @@
   "homepage": "https://github.com/tinovyatkin/babel-plugin-html-tag#readme",
   "devDependencies": {
     "@babel/core": "7.8.0",
-    "@destinationstransfers/eslint-plugin": "2.9.93",
+    "@destinationstransfers/eslint-plugin": "2.9.94",
     "@types/babel__traverse": "7.0.8",
     "@types/node": "12.12.24",
     "eslint": "latest",
