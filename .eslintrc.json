@@ -1,0 +1,24 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "script"
+  },
+  "plugins": ["prettier", "node"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:node/recommended"
+  ],
+  "env": {
+    "es6": true,
+    "shared-node-browser": true
+  },
+  "overrides": [
+    {
+      "files": ["*.test.js"],
+      "env": {
+        "jest": true
+      }
+    }
+  ]
+}
