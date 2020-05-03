@@ -1,8 +1,5 @@
 {
-  "extends": [
-    "config:base",
-    ":automergeMinor"
-  ],
+  "extends": ["config:base", ":automergeMinor"],
   "baseBranches": ["master"],
   "respectLatest": false,
   "labels": ["dependencies"],

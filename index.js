@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-const htmlMinifier = require('html-minifier');
+const htmlMinifier = require("html-minifier");
 
 /**
  * @typedef {import('babel-types').TaggedTemplateExpression} TaggedTemplateExpression
@@ -12,7 +12,7 @@ const htmlMinifier = require('html-minifier');
 // This placeholder has a space so that, if an expressions is used
 // in an attribute like `class="ab${something}cd"`, html-minifier
 // doesn't remove the attribute quotes.
-const placeholder = '_BABEL_HTML_TAG_';
+const placeholder = "_BABEL_HTML_TAG_";
 const placeholderRx = /_babel_html_tag_/gi;
 
 /**
@@ -21,12 +21,12 @@ const placeholderRx = /_babel_html_tag_/gi;
  * @param {string | string[]} [option=html]
  * @returns {string[]}
  */
-function getNames(name, option = ['html']) {
+function getNames(name, option = ["html"]) {
   if (Array.isArray(option)) return option;
-  if (typeof option === 'string') return [option];
+  if (typeof option === "string") return [option];
   if (option == null) return [];
   throw new TypeError(
-    `Expected an array of strings in the "${name}" option, got ${typeof option}`,
+    `Expected an array of strings in the "${name}" option, got ${typeof option}`
   );
 }
 
@@ -37,7 +37,7 @@ function getNames(name, option = ['html']) {
  */
 function escapeStaticString(text) {
   // escape single quotes (if not already escaped)
-  return text.replace(/(?<!\\)'/g, "\\'").replace(/\n+/g, '\\n');
+  return text.replace(/(?<!\\)'/g, "\\'").replace(/\n+/g, "\\n");
 }
 
 module.exports =
@@ -45,7 +45,7 @@ module.exports =
    * @param {import('@babel/core')} babel
    * @returns {{ visitor: Visitor }}
    */
-  babel => {
+  (babel) => {
     const t = babel.types;
 
     /**
@@ -55,9 +55,9 @@ module.exports =
      */
     function minify(template, options = {}) {
       /** @type {{ node: TemplateLiteral }} */
-      const { node } = template.get('quasi');
+      const { node } = template.get("quasi");
       const { quasis } = node;
-      const cookedQuasis = quasis.map(quasi => quasi.value.cooked);
+      const cookedQuasis = quasis.map((quasi) => quasi.value.cooked);
 
       let minifyCSS = true;
       for (const part of cookedQuasis) {
@@ -89,16 +89,16 @@ module.exports =
       if (parts.length > 1) {
         parts.forEach((value, i) => {
           template
-            .get('quasi')
-            .get('quasis')
+            .get("quasi")
+            .get("quasis")
             [i].replaceWith(
               t.templateElement(
                 { cooked: value, raw: value },
-                i === parts.length - 1,
-              ),
+                i === parts.length - 1
+              )
             );
         });
-        template.replaceWith(template.get('quasi'));
+        template.replaceWith(template.get("quasi"));
       } else {
         template.replaceWithSourceString(`'${escapeStaticString(minified)}'`);
       }
@@ -107,9 +107,9 @@ module.exports =
     return {
       visitor: {
         TaggedTemplateExpression(path) {
-          const tag = path.get('tag');
-          const isHtmlTag = getNames('tags', this.opts.tags).some(name =>
-            tag.isIdentifier({ name }),
+          const tag = path.get("tag");
+          const isHtmlTag = getNames("tags", this.opts.tags).some((name) =>
+            tag.isIdentifier({ name })
           );
           if (isHtmlTag) {
             minify(path, this.opts);
