@@ -1,4 +1,4 @@
 {
-    "typescript.tsdk": "node_modules/typescript/lib",
-    "deepscan.enable": true
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "deepscan.enable": true
 }

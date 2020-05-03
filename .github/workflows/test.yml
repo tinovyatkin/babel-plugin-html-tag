@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
-      - run: npx jest --coverage --colors
+      - run: npm test -- --colors
 
       - uses: codecov/codecov-action@v1
         with:

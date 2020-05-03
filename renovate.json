@@ -1,10 +1,20 @@
 {
-  "extends": [
-    "config:base",
-    ":automergeMinor"
-  ],
+  "extends": ["config:base", ":automergeMinor"],
   "baseBranches": ["master"],
   "respectLatest": false,
   "labels": ["dependencies"],
-  "timezone": "America/Santo_Domingo"
+  "timezone": "America/Santo_Domingo",
+  "pin": {
+    "requiredStatusChecks": null,
+    "automerge": true
+  },
+  "vulnerabilityAlerts": {
+    "labels": ["dependencies", "security"]
+  },
+  "packageRules": [
+    {
+      "depTypeList": ["dependencies"],
+      "bumpVersion": "patch"
+    }
+  ]
 }
