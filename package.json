@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "node --expose-gc node_modules/jest/bin/jest --detectOpenHandles --detectLeaks --logHeapUsage",
-    "typecheck": "tsc --p jsconfig.json"
+    "typecheck": "tsc --p jsconfig.json",
+    "lint": "eslint index.js"
   },
   "repository": {
     "type": "git",
@@ -44,7 +45,8 @@
     "jest": "25.5.4",
     "jest-junit": "10.0.0",
     "prettier": "2.0.5",
-    "typescript": "3.8.3"
+    "typescript": "3.8.3",
+    "weak-napi": "2.0.0"
   },
   "directories": {
     "test": "__tests__"
