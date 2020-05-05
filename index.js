@@ -1,6 +1,6 @@
 "use strict";
 
-const htmlMinifier = require("html-minifier");
+const htmlMinifier = require("html-minifier-terser");
 
 /**
  * @typedef {import('babel-types').TaggedTemplateExpression} TaggedTemplateExpression
