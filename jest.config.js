@@ -2,6 +2,6 @@ module.exports = {
   verbose: true,
   testEnvironment: "node",
   collectCoverage: true,
-  coverageProvider: process.version > "v10." ? "v8" : "babel",
+  coverageProvider: "v8",
   coverageReporters: ["json", "text"],
 };
