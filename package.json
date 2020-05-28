@@ -34,7 +34,7 @@
   },
   "homepage": "https://github.com/tinovyatkin/babel-plugin-html-tag#readme",
   "devDependencies": {
-    "@babel/core": "7.10.0",
+    "@babel/core": "7.10.1",
     "@types/babel__traverse": "7.0.11",
     "@types/node": "12.12.42",
     "eslint": "7.1.0",
