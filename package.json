@@ -37,7 +37,7 @@
     "@babel/core": "7.12.10",
     "@types/babel__traverse": "7.11.0",
     "@types/node": "12.19.11",
-    "eslint": "7.16.0",
+    "eslint": "7.17.0",
     "eslint-config-prettier": "6.15.0",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "3.3.0",
