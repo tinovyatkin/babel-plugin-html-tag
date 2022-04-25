@@ -36,7 +36,7 @@
   "devDependencies": {
     "@babel/core": "7.17.9",
     "@types/babel__traverse": "7.17.0",
-    "@types/node": "16.11.27",
+    "@types/node": "16.11.28",
     "eslint": "8.14.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-node": "11.1.0",
